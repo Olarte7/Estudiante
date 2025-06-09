@@ -341,17 +341,17 @@ public class Estudiante
      * @return Respuesta 1.
      */
     public double obtenerSalario() {
-        double promedioNotas = calcularPromedioEstudiante();
+        double promedio = calcularPromedioEstudiante();
         double monto = 0;
 
         if (semestre >= 1 && semestre <= 3) {
-            if (promedioNotas >= 4.0) {
+            if (promedio >= 4.0) {
                 monto = 25000;
             } else {
                 monto = 15000;
             }
         } else if (semestre >= 4 && semestre <= 7) {
-            if (promedioNotas >= 4.5) {
+            if (promedio >= 4.5) {
                 monto = 35000;
             } else {
                 monto = 25000;
@@ -370,8 +370,8 @@ public class Estudiante
         return formato.format(cantidad);
     }
 
-    public String obtenerDescripcionPeriodo() {
-        return semestre + "º Periodo";
+    public String obtenerDescripcionSemestre() {
+        return semestre + "Semestre";
     }
     
     public double notaMaxima() {
