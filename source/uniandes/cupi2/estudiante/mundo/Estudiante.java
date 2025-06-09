@@ -10,13 +10,22 @@
  */
 package uniandes.cupi2.estudiante.mundo;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import uniandes.cupi2.estudiante.mundo.Curso.Departamento;
 
 /**
  * Estudiante que tiene 4 cursos.
  */
 public class Estudiante
+
+
+
 {
+	
+	
+	
     // -----------------------------------------------------------------
     // Atributos
     // -----------------------------------------------------------------
@@ -69,6 +78,8 @@ public class Estudiante
      * Curso 4 del estudiante.
      */
     private Curso curso4;
+    
+    private int semestre;
 
     // -----------------------------------------------------------------
     // Constructores
@@ -329,15 +340,48 @@ public class Estudiante
      * Método para la extensión 1.
      * @return Respuesta 1.
      */
-    public String metodo1( )
-    {
-        return "Respuesta 1";
+    public double obtenerSalario() {
+        double promedioNotas = calcularPromedioEstudiante();
+        double monto = 0;
+
+        if (semestre >= 1 && semestre <= 3) {
+            if (promedioNotas >= 4.0) {
+                monto = 25000;
+            } else {
+                monto = 15000;
+            }
+        } else if (semestre >= 4 && semestre <= 7) {
+            if (promedioNotas >= 4.5) {
+                monto = 35000;
+            } else {
+                monto = 25000;
+            }
+        } else if (semestre >= 8) {
+            monto = 50000;
+        } else {
+            monto = 0;
+        }
+
+        return monto;
+    }
+    
+    private String cambiarValor(double cantidad) {
+        DecimalFormat formato = (DecimalFormat) NumberFormat.getCurrencyInstance();
+        return formato.format(cantidad);
     }
 
-    /**
-     * Método para la extensión 2.
-     * @return Respuesta 2.
-     */
+    public String obtenerDescripcionPeriodo() {
+        return semestre + "º Periodo";
+    }
+    
+
+
+    public String metodo1( )
+    {
+        String formSalario = cambiarValor(obtenerSalario());
+        return "El salario del estudiante es de " + formSalario;
+    }
+
     public String metodo2( )
     {
         return "Respuesta 2";

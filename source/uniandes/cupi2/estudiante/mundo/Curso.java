@@ -109,7 +109,11 @@ public class Curso
     // Métodos
     // -----------------------------------------------------------------
 
-    /**
+    public Curso(double d) {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Retorna el código del curso.
      * @return Código del curso.
      */

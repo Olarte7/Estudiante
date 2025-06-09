@@ -28,6 +28,7 @@ import uniandes.cupi2.estudiante.mundo.Estudiante;
 public class InterfazEstudiante extends JFrame
 {
 
+	
     // ------------------------------------------------------------------
     // Atributos de Interfaz
     // -----------------------------------------------------------------
