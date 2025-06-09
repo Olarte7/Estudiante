@@ -374,7 +374,18 @@ public class Estudiante
         return semestre + "º Periodo";
     }
     
+    public double notaMaxima() {
+        double maxNota = Double.MIN_VALUE;
+        Curso[] listaCursos = { curso1, curso2, curso3, curso4 };
 
+        for (Curso c : listaCursos) {
+            if (c.darNota() > maxNota) {
+                maxNota = c.darNota();
+            }
+        }
+
+        return maxNota;
+    }
 
     public String metodo1( )
     {
@@ -384,6 +395,11 @@ public class Estudiante
 
     public String metodo2( )
     {
-        return "Respuesta 2";
+        return "La nota más alta del alumno es " + notaMaxima();
+    }
+    
+    private double calcularPromedio() {
+        double suma = curso1.darNota() + curso2.darNota() + curso3.darNota() + curso4.darNota();
+        return suma / 4.0;
     }
 }
